@@ -12,7 +12,7 @@
 # 选择5.15内核
 #sed -i 's/6.12/5.15/g' target/linux/x86/Makefile
 # 设置默认ip
-sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/luci/bin/config_generate
+sed -i 's/192.168.1.1/192.168.10.12/g' package/base-files/luci/bin/config_generate
 
 # 移除要替换的包
 rm -rf feeds/luci/applications/luci-app-passwall
@@ -36,7 +36,7 @@ sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/file
 # 修改版本为编译日期
 date_version=$(date +"%y.%m.%d")
 orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
-sed -i "s/${orig_version}/R${date_version} by EircoD/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/${orig_version}/R${date_version} by hza800755/g" package/lean/default-settings/files/zzz-default-settings
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
