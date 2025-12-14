@@ -12,7 +12,9 @@
 # 选择5.15内核
 #sed -i 's/6.12/5.15/g' target/linux/x86/Makefile
 # 设置默认ip
-sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/luci/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/luci/bin/config_generate
+sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
+
 
 # 移除要替换的包
 rm -rf feeds/luci/applications/luci-app-passwall
@@ -52,7 +54,7 @@ function git_sparse_clone() {
 git_sparse_clone openwrt-24.10 https://github.com/openwrt/packages utils/coremark
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 git clone https://github.com/sirpdboy/luci-app-lucky.git package/lucky
-git clone --depth=1 -b master https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth=1 -b master https://github.com/hza81007155/luci-theme-argon package/luci-theme-argon
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash package/luci-app-openclash
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --depth=1 -b main https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
