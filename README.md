@@ -12,7 +12,7 @@ https://github.com/dzlea/ActionsBuildOpenWRT
 编译了istoreos的首页与应用商店 注：istore里的插件不一定兼容lede，请自行测试
 编译了大部分常用插件，turbo ACC 编译了 Fast classifier，我自用体验很好 没什么bug，其他插件请见config
 
-默认后台ip：192.168.100.1
+默认后台ip：192.168.10.12
 
 默认登录密码：password
 
