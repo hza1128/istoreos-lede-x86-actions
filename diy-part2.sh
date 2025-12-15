@@ -29,6 +29,9 @@ rm -rf feeds/packages/net/xray-core
 rm -rf feeds/packages/net/lucky
 rm -rf feeds/packages/utils/coremark
 
+# 删除冲突插件
+rm -rf $(find ./ ../feeds/luci/ ../feeds/packages/ -maxdepth 3 -type d \( -iname "*argon*" -o -iname "*openclash*" -o -iname "*lucky*" \) -prune)
+
 # 设置默认主题
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-light/Makefile
 
@@ -52,14 +55,18 @@ function git_sparse_clone() {
 
 # 添加插件
 git_sparse_clone openwrt-24.10 https://github.com/openwrt/packages utils/coremark
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 git clone https://github.com/sirpdboy/luci-app-lucky.git package/lucky
-git clone --depth=1 -b master https://github.com/hza81007155/luci-theme-argon package/luci-theme-argon
+# git clone --depth=1 -b master https://github.com/hza81007155/luci-theme-argon package/luci-theme-argon
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash package/luci-app-openclash
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --depth=1 -b main https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/openwrt-passwall2
 git clone https://github.com/sirpdboy/luci-app-taskplan package/luci-app-taskplan
+
+# 18.06 Argone theme
+git clone --depth=1 -b main https://github.com/hza81007155/luci-theme-argone package/luci-theme-argone
+git clone --depth=1 -b main https://github.com/hza81007155/luci-app-argone-config package/luci-app-argone-config
 
 # istore
 git clone --depth=1 -b main https://github.com/linkease/nas-packages-luci package/nas-packages-luci
